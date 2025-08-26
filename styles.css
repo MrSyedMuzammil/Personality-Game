@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+:root {
+  --background-color: #1a1a2e;
+  --primary-color: #e94560;
+  --secondary-color: #0f3460;
+  --font-color: #e0e0e0;
+  --card-background: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --success-gradient: linear-gradient(45deg, #28a745, #218838);
+  --danger-gradient: linear-gradient(45deg, #dc3545, #c82333);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--background-color);
+  color: var(--font-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 0
+  );
+  background-size: 20px 20px;
+}
+
+/* --- Main App Container (Glassmorphism) --- */
+.container {
+  background: var(--card-background);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* For Safari */
+  border-radius: 20px;
+  border: 1px solid var(--card-border);
+  padding: 2rem 2.5rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--primary-color), #ff7e5f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Emoji Display Area --- */
+#emoji-container {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  min-height: 80px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+#emoji-container span {
+  font-size: 2.5rem;
+  animation: popIn 0.4s ease-out;
+}
+
+/* --- Input Field --- */
+#emoji-input {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  background: transparent;
+  border: 2px solid var(--card-border);
+  border-radius: 10px;
+  color: var(--font-color);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#emoji-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#emoji-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+}
+
+.button-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific Button Colors */
+#push-btn,
+#unshift-btn {
+  background: var(--success-gradient);
+}
+
+#pop-btn,
+#shift-btn {
+  background: var(--danger-gradient);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
