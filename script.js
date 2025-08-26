@@ -16,28 +16,29 @@ function renderEmojis() {
   }
 }
 renderEmojis();
-
 pushBtn.addEventListener("click", function () {
-  emoji = emojiInput.value.trim();
-  if (emoji && emoji.length === 1) {
+  const emoji = emojiInput.value.trim();
+  const characterCount = [...emoji].length;
+
+  if (emoji && characterCount === 1) {
     myEmojis.push(emoji);
     emojiInput.value = "";
     renderEmojis();
-  } else if (emoji && emoji.length > 1) {
+  } else if (characterCount > 1) {
     alert("Please input only one emoji");
   } else {
     alert("Please input an emoji");
   }
 });
-
 unshiftBtn.addEventListener("click", function () {
-  emoji = emojiInput.value.trim();
+  const emoji = emojiInput.value.trim();
+  const characterCount = [...emoji].length;
 
-  if (emoji && emoji.length === 1) {
+  if (emoji && characterCount === 1) {
     myEmojis.unshift(emoji);
     emojiInput.value = "";
     renderEmojis();
-  } else if (emoji && emoji.length > 1) {
+  } else if (characterCount > 1) {
     alert("Please input only one emoji");
   } else {
     alert("Please input an emoji");
