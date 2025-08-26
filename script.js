@@ -4,10 +4,12 @@ let emojiInput = document.querySelector("#emoji-input");
 
 const myEmojis = ["📿", "🙌", "🍗", "🍔"];
 
-for (const myEmoji of myEmojis) {
-  const emoji = document.createElement("span");
-  emoji.textContent = myEmoji;
-  emojiContainer.append(emoji);
+function renderEmojis() {
+  for (const myEmoji of myEmojis) {
+    const emoji = document.createElement("span");
+    emoji.textContent = myEmoji;
+    emojiContainer.append(emoji);
+  }
 }
 
 pushBtn.addEventListener("click", function () {
@@ -15,7 +17,8 @@ pushBtn.addEventListener("click", function () {
   if (emojiInput.value) {
     myEmojis.push(emoji);
     emojiInput.value = "";
-    console.log(myEmojis);
+    emojiInput.innerHTML = "";
+    renderEmojis();
   } else {
     alert("Please input an emoji");
   }
